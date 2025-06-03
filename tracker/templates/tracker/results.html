@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+</head>
+<body>
+  <h2>Minutes Worked Summary</h2>
+
+  <div>
+    {{ table_html|safe }}
+  </div>
+
+  <br>
+
+  {% if download_available %}
+  <form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="download" value="1">
+    <button type="submit">Download CSV</button>
+  </form>
+  {% endif %}
+
+  <br>
+  <a href="/">Upload another file</a>
+</body>
+</html>
+
