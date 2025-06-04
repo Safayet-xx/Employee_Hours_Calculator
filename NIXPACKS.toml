@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python312", "git"]
+
+[phases.install]
+cmd = "pip install -r requirements.txt"
+
+[phases.build]
+cmd = "python manage.py collectstatic --noinput"
+
+[start]
+cmd = "gunicorn employee_site.wsgi"
